@@ -4,7 +4,7 @@
 #
 Name     : R-stringdist
 Version  : 0.9.5.5
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/stringdist_0.9.5.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/stringdist_0.9.5.5.tar.gz
 Summary  : Approximate String Matching and String Distance Functions
