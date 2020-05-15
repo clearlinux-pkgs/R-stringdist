@@ -4,7 +4,7 @@
 #
 Name     : R-stringdist
 Version  : 0.9.5.5
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/stringdist_0.9.5.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/stringdist_0.9.5.5.tar.gz
 Summary  : Approximate String Matching and String Distance Functions
@@ -12,10 +12,15 @@ Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-stringdist-lib = %{version}-%{release}
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-[![Mentioned in Awesome Official Statistics ](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
+'match' function. Can calculate various string distances based on edits
+    (Damerau-Levenshtein, Hamming, Levenshtein, optimal sting alignment), qgrams (q-
+    gram, cosine, jaccard distance) or heuristic metrics (Jaro, Jaro-Winkler). An
+    implementation of soundex is provided as well. Distances can be computed between
+    character vectors while taking proper care of encoding or between integer
+    vectors representing generic sequences. This package is built for speed and
+    runs in parallel by using 'openMP'. An API for C or C++ is exposed as well.
 
 %package lib
 Summary: lib components for the R-stringdist package.
@@ -27,21 +32,22 @@ lib components for the R-stringdist package.
 
 %prep
 %setup -q -c -n stringdist
+cd %{_builddir}/stringdist
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571676803
+export SOURCE_DATE_EPOCH=1589557873
 
 %install
-export SOURCE_DATE_EPOCH=1571676803
+export SOURCE_DATE_EPOCH=1589557873
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
