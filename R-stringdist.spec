@@ -4,7 +4,7 @@
 #
 Name     : R-stringdist
 Version  : 0.9.7
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/stringdist_0.9.7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/stringdist_0.9.7.tar.gz
 Summary  : Approximate String Matching, Fuzzy Text Search, and String
